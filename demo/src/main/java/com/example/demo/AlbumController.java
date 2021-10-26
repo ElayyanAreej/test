@@ -1,5 +1,6 @@
 package com.example.demo;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -9,7 +10,8 @@ import java.util.ArrayList;
 
 @Controller
 public class AlbumController {
-
+     @Autowired
+     AlbumRepasotiries albumRepasotiries;
     //Create a route at /albums that shows three album instances. (These will be hardcoded for today’s lab;
     // create an array that contains three albums, and then display those three on the page.)
     @GetMapping("/albums")
@@ -24,6 +26,12 @@ public class AlbumController {
         list.add(a2);
         list.add(a3);
          return a1.toString()+"<br>"+a2.toString()+"<br>"+a3.toString()+"<br>";
+    }
+
+    @GetMapping("/add")
+    public void addAlbum(){
+        Album a1 = new Album("albumName1", "Ali", 1, 60, ".....");
+        albumRepasotiries.save(a1);
     }
 
 

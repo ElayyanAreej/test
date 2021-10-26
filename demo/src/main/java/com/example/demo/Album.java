@@ -1,13 +1,30 @@
 package com.example.demo;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
+@Entity
 public class Album {
 
     //An Album has a title, an artist, a songCount, a length (in seconds),
     // and an imageUrl that is a link to that album’s art.
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+     private int id;
      private String title;
      private String artist;
-     private int songCount;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    private int songCount;
      private int length;
      private String imageUrl;
 
