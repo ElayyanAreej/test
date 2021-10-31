@@ -81,4 +81,5 @@ public class Album {
         album+=this.artist+" has "+this.title+" album with "+this.songCount+" Songs";
         return album;
     }
+
 }
